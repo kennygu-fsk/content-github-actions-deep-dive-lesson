@@ -49,12 +49,12 @@ jobs:
     steps:
       - name: Create release
         id: create_release
-        uses: actions/create-release@latest
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
           tag_name: ${{  github.run_number }}
-          release_name: ${{ github.run_number }}
+          name: ${{ github.run_number }}
           body: New Release ${{ github.run_number }}. Release notes can be found in the docs.
           draft: false
           prerelease: false
